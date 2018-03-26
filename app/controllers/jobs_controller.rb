@@ -24,9 +24,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
-  def edit
-    # implement on your own!
-  end
+  def edit; end
 
   def update
     # implement on your own!
