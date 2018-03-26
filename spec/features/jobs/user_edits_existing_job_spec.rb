@@ -9,14 +9,19 @@ describe "User" do
       visit company_path(company)
       click_on 'Developer'
       click_on 'Edit Job'
+
+
       fill_in 'Title', with: 'Sportscaster'
-      fill_in 'level_of_interest', with: 99
-      fill_in 'city', with: 'New York City'
+      fill_in 'Description', with: 'Talk to the camera.'
+      fill_in 'Level of interest', with: 99
+      fill_in 'City', with: 'New York City'
       click_on 'Update Job'
 
       expect(page).to have_content("Sportscaster")
+      expect(page).to have_content("Talk to the camera.")
       expect(page).to have_content("99")
       expect(page).to have_content("New York City")
+      expect(page).to have_content("Job '#{job.title}' was updated.")
     end
   end
 end
