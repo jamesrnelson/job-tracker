@@ -1,5 +1,5 @@
-class CategoriesController < ApplicationRecord
-  def new
-
+class CategoriesController < ApplicationController
+  def index
+    @categories = Category.all
   end
 end
