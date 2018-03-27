@@ -3,12 +3,14 @@ require 'rails_helper'
 describe 'User creates a new job' do
   scenario 'a user can create a new job' do
     company = Company.create!(name: 'ESPN')
+    category = Category.create!(title: 'Web Development')
     visit new_company_job_path(company)
 
     fill_in 'job[title]', with: 'Developer'
     fill_in 'job[description]', with: 'So fun!'
     fill_in 'job[level_of_interest]', with: 80
     fill_in 'job[city]', with: 'Denver'
+    select('Web Development', from: 'job[category_id]')
 
     click_button 'Create'
 
@@ -23,6 +25,7 @@ end
 describe 'User creates a new job from company job listing' do
   scenario 'a user clicks the link to go to form' do
     company = Company.create!(name: 'ESPN')
+    category = Category.create!(title: 'Web Development')
     visit company_path(company)
     click_link 'Create a New Job'
 
@@ -30,8 +33,9 @@ describe 'User creates a new job from company job listing' do
     fill_in 'job[description]', with: 'So fun!'
     fill_in 'job[level_of_interest]', with: 80
     fill_in 'job[city]', with: 'Denver'
+    select('Web Development', from: 'job[category_id]')
 
-    click_button 'Create'
+    click_button 'Create Job'
 
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
     expect(page).to have_content('ESPN')
