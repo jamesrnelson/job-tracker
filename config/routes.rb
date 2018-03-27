@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :jobs
-  resources :comments
 
   resources :companies do
     resources :jobs
