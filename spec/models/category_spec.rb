@@ -16,13 +16,13 @@ describe Category do
       end
 
       it 'is only valid if it is unique' do
-        category1 = Category.new(title: 'Developer')
-        category2 = Category.new(title: 'I-Banking')
-        category3 = Category.new(title: 'I-Banking')
+        category1 = Category.create(title: 'Developer')
+        category2 = Category.create(title: 'I-Banking')
+        category3 = Category.create(title: 'I-Banking')
 
         expect(category1).to be_valid
         expect(category2).to be_valid
-        expect(category3).to be_valid
+        expect(category3).to_not be_valid
       end
     end
   end
