@@ -5,13 +5,13 @@ describe Comment do
     context 'invalid attributes' do
       it 'is invalid without a body' do
         comment = Comment.new(body: 'This is the body')
-        expect(job).to be_invalid
+        expect(comment).to be_invalid
       end
 
 
       it 'is invalid without a city' do
         comment = Comment.new(body: 'This is the body')
-        expect(job).to be_invalid
+        expect(comment).to be_invalid
       end
     end
 
