@@ -4,7 +4,11 @@ describe 'User' do
   context "visits a job's page and clicks edit" do
     it 'should be able to fill in the edit form' do
       company = Company.create!(name: 'ESPN')
-      company.jobs.create!(title: 'Developer', level_of_interest: 70, city: 'Denver')
+      company.jobs.create!(
+        title: 'Developer',
+        level_of_interest: 70,
+        city: 'Denver'
+      )
 
       visit company_path(company)
       click_on 'Developer'
@@ -29,7 +33,11 @@ describe 'User' do
   context "visits an edit page but doesn't provide required info" do
     it 'should redirect to edit page' do
       company = Company.create!(name: 'ESPN')
-      company.jobs.create!(title: 'Developer', level_of_interest: 70, city: 'Denver')
+      company.jobs.create!(
+        title: 'Developer',
+        level_of_interest: 70,
+        city: 'Denver'
+      )
 
       visit company_path(company)
       click_on 'Developer'
