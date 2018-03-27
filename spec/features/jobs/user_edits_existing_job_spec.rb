@@ -17,7 +17,7 @@ describe 'User' do
       fill_in 'Title', with: 'Sportscaster'
       fill_in 'Description', with: 'Talk to the camera.'
       fill_in 'Level of interest', with: 99
-      fill_in 'City', with: 'New York City'
+      fill_in 'City', with: 'New York City' 
       click_on 'Update Job'
 
       expect(page).to have_content('Sportscaster')
