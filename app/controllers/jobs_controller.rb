@@ -30,9 +30,16 @@ class JobsController < ApplicationController
   end
 
   def update
+    @job = Job.find(params[:id])
+    @company = @job.company
     @job.update(job_params)
-    flash.notice = "Job '#{@job.title}' was updated."
-    redirect_to company_job_path(@company, @job)
+    if @job.save
+      flash.notice = "Job '#{@job.title}' was updated."
+      redirect_to company_job_path(@company, @job)
+    else
+      flash.notice = 'Job was NOT updated. Please do not leave any fields blank.'
+      render :edit
+    end
   end
 
   def destroy
