@@ -33,7 +33,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @company = @job.company
     @job.update(job_params)
-    if @job.save
+    if @job.update
       flash.notice = "Job '#{@job.title}' was updated."
       redirect_to company_job_path(@company, @job)
     else
