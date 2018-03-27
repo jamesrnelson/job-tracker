@@ -13,3 +13,11 @@ City: <%= @job.city %>
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 <%= link_to "Edit Job", edit_company_job_path(@job) %>
+<br>
+
+Comments:
+<%= @job.comments.each do |c| %>
+  <p>
+    <%= c.body %><br/>
+  </p>
+<% end %>
