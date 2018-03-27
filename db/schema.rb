@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20180327044340) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.bigint "jobs_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["jobs_id"], name: "index_comments_on_jobs_id"
   end
 
