@@ -17,7 +17,6 @@ describe Comment do
 
     context 'valid attributes' do
       it 'is valid with a body' do
-        job = Job.new(title: 'Developer', level_of_interest: 40, city: 'Denver', company: company)
         comment = Comment.new(body: 'This is the body')
 
         expect(comment).to be_valid
