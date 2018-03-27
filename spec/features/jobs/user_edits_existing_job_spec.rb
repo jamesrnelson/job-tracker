@@ -38,8 +38,7 @@ describe 'User' do
       fill_in 'Description', with: nil
       click_on 'Update Job'
 
-      expect(page).to have_text('Job was NOT updated. Please do not leave any fields blank.')
-      expect(page).to have_path(edit_company_job_path)
+      expect(page).to have_content('Edit the job')
     end
   end
 end
