@@ -11,5 +11,5 @@ class Company < ApplicationRecord
 
   def average_level_of_interest
     jobs.average(:level_of_interest)
-  end 
+  end
 end
