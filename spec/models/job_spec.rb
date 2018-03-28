@@ -71,8 +71,8 @@ describe Job do
   describe "comment order" do
     it "has comments sorted newest to oldest" do
       job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
-      comment1 = job.comments.new(body: 'A comment', job_id: job[:id])
-      comment2 = job.comments.new(body: 'Another comment', job_id: job[:id])
+      comment1 = job.comments.new(body: 'A comment')
+      comment2 = job.comments.new(body: 'Another comment')
 
       expect(job.comment_order.first.body).to eq('Another comment')
     end
