@@ -59,7 +59,7 @@ describe Company do
     it 'deletes jobs it owns when deleted' do
       company = Company.create(name: 'Turing')
       company.contacts.create(name: 'Jimbo James', position: 'Jam Maker', email: 'barker@jimmer.com')
-      binding.pry
+
       company.destroy
 
       expect(Contact.count).to eq(0)

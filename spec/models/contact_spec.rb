@@ -13,6 +13,14 @@ describe Contact do
       end
     end
 
+    context 'invalid attributes' do
+      it 'is invalid without an actual email' do
+        contact = Contact.new(name: 'Steve', position: 'This is the position', email: 'weave')
+
+        expect(contact).to be_invalid
+      end
+    end
+
     context 'valid attributes' do
       it 'is valid with a name, position, and email' do
         company = Company.new(name: "Turing")
