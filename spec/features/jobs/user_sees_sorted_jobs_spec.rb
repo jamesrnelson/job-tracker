@@ -60,7 +60,7 @@ describe "User views a job sort page" do
 
     visit jobs_path
 
-    click_link "Sort All Jobs by Interest Level"
+    click_link "Sort All Jobs by (Interest) Level"
 
     within ".index_0" do
       expect(page).to have_content('Bangkok')
