@@ -1,5 +1,11 @@
-All Jobs <%= link_to 'Sort All Jobs by City', jobs_path(:sort => :location) %> <%= link_to 'Sort All Jobs by Interest Level', jobs_path(sort: :interest) %>
+<div class="container">
 
-<% @jobs.each_with_index do |job, index| %>
-<ul class=index_<%= index %>><%= link_to job.title, job_path(job) %> at <%= job.company.name %> in <%= job.city %> - <%= job.level_of_interest %> - <%= link_to "Delete", job_path(job), method: "delete", data: {confirm: "Are you sure? This will permanently delete this job."} %></ul>
-<% end %>
+  <h1>All Jobs</h1>
+  
+  <%= link_to 'Sort All Jobs by City', jobs_path(:sort => :location) %>
+  <%= link_to 'Sort All Jobs by (Interest) Level', jobs_path(sort: :interest) %>
+
+  <% @jobs.each_with_index do |job, index| %>
+    <ul class=index_<%= index %>><%= link_to job.title, job_path(job) %> at <%= job.company.name %> in <%= job.city %> - <%= job.level_of_interest %> - <%= link_to "Delete", job_path(job), method: "delete", data: {confirm: "Are you sure? This will permanently delete this job."} %></ul>
+  <% end %>
+</div>

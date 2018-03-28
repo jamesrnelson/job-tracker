@@ -30,6 +30,5 @@ class Job < ApplicationRecord
 
   def comment_order
     comments.order('created_at DESC')
-
   end
 end
