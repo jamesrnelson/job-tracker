@@ -1,0 +1,12 @@
+<%= form_for [@company, @contact] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+
+  <%= f.label :position %>
+  <%= f.text_area :position %>
+
+  <%= f.label :email %>
+  <%= f.text_area :email %>
+
+  <%= f.submit %>
+<% end %>
