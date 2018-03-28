@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'companies#index'
   resources :categories
   resources :jobs
+  resources :companies
 
   resources :companies do
     resources :jobs
