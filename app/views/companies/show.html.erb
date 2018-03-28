@@ -11,6 +11,6 @@ Contacts:
 <%= render partial: "form_contact" %>
 <% @company.contacts.each do |c| %>
   <p>
-    Name: <%= c.name %> | Position: <%= c.position %> | Email: <%= c.email %><br/>
+    Name: <%= c.name %> | Position: <%= c.position %> | Email: <%= c.email %> <%= link_to "Edit Contact", edit_company_contact_path(@company, c) %><br/>
   </p>
 <% end %>
