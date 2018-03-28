@@ -11,7 +11,7 @@ describe 'User creates a new comment' do
 
     click_button 'Create'
 
-    expect(current_path).to eq(company_job_path(company, job))
+    expect(current_path).to eq(job_path(job))
     expect(page).to have_content('Chet Harper might not be my best contact, but he is who I know')
   end
 end
