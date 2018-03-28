@@ -102,8 +102,8 @@ describe Job do
         company: company,
         category: category
       )
-      comment1 = job.comments.new(body: 'A comment')
-      comment2 = job.comments.new(body: 'Another comment')
+      job.comments.new(body: 'A comment')
+      job.comments.new(body: 'Another comment')
 
       expect(job.comment_order.first.body).to eq('Another comment')
     end
