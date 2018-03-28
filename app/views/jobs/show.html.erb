@@ -15,6 +15,9 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 <%= link_to "Edit Job", edit_company_job_path(@job) %>
 <br>
 
+Category: <%= link_to @job.category.title, category_path(@job.category_id) %>
+<br>
+
 Comments:
 <%= render partial: "form_comment" %>
 <% @job.comments.each do |c| %>
