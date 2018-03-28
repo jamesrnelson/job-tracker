@@ -1,13 +1,9 @@
-class CommentsController < ApplicationRecord
+class CommentsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     @comment = @job.comments.new(comment_params)
-    if @comment.save
-      flash[:success] = "You created a comment for #{@job.name}"
-      redirect_to company_job_path(params[:company_id], @job)
-    else
-      render :new
-    end
+    @comment.save
+    redirect_to job_path(@job)
   end
 
   private

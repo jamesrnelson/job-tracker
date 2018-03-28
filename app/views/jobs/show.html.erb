@@ -16,8 +16,8 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 <br>
 
 Comments:
-
-<% @job.comments.each do |c| %>
+<%= render partial: "form_comment" %>
+<% @job.comments.reverse.each do |c| %>
   <p>
     <%= c.body %> <%= c.created_at %><br/>
   </p>
