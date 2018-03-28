@@ -91,8 +91,8 @@ describe Job do
   end
 
 
-  describe "comment order" do
-    it "has comments sorted newest to oldest" do
+  describe 'comment order' do
+    it 'has comments sorted newest to oldest' do
       company = Company.create(name: 'Turing')
       category = Category.create(title: 'Web Development')
       job = Job.create(
@@ -125,6 +125,123 @@ describe Job do
       job.destroy
 
       expect(Comment.count).to eq(0)
+    end
+  end
+
+  describe "methods" do
+    it 'returns jobs with score in range' do
+      company = Company.create(name: 'Turing')
+      category = Category.create(title: 'Web Development')
+      Job.create(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer2',
+        level_of_interest: 70,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer3',
+        level_of_interest: 72,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer4',
+        level_of_interest: 90,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+
+      expect(Job.count_75_and_up).to eq(1)
+      expect(Job.count_between_50_and_75).to eq(2)
+      expect(Job.count_between_25_and_50).to eq(1)
+      expect(Job.count_less_than_25).to eq(0)
+    end
+  end
+
+  describe "method#jobs_in_city" do
+    it 'returns jobs with score in range' do
+      company = Company.create(name: 'Turing')
+      category = Category.create(title: 'Web Development')
+      Job.create(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer2',
+        level_of_interest: 70,
+        city: 'Danver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer3',
+        level_of_interest: 72,
+        city: 'Memphis',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer4',
+        level_of_interest: 90,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+
+      expect(Job.jobs_in_city('Denver').count).to eq(2)
+      expect(Job.jobs_in_city('Danver').count).to eq(1)
+    end
+  end
+
+  describe "method#jobs_in_city" do
+    it 'returns jobs with score in range' do
+      company = Company.create(name: 'Turing')
+      category = Category.create(title: 'Web Development')
+      Job.create(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer2',
+        level_of_interest: 70,
+        city: 'Danver',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer3',
+        level_of_interest: 72,
+        city: 'Memphis',
+        company: company,
+        category: category
+      )
+      Job.create(
+        title: 'Developer4',
+        level_of_interest: 90,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+
+      expect(Job.distinct_cities).to include('Denver')
+      expect(Job.distinct_cities).to include('Danver')
+      expect(Job.distinct_cities).to include('Memphis')
     end
   end
 end
