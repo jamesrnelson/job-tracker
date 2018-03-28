@@ -14,3 +14,6 @@ Not interested (interest less than 25) - <%= @job0_25 %>
 <% end %>
 
 <h4>Top 3 Companies</h4>
+<% @top_three_companies.each do |company| %>
+  <%= company.name %> <%= company.average_level_of_interest %> <br/>
+<% end %>
