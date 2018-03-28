@@ -1,1 +1,16 @@
 <h1>All You Need to Know About Jobs</h1>
+<h5>Jobs by Interest Level</h5>
+Best Jobs (interest of 75 and up) - <%= @job75_100 %>
+<br/>
+Good Jobs (interest between 50 and 75) - <%= @job50_75 %>
+<br/>
+Okay Jobs (interest between 25 and 50) - <%= @job25_50 %>
+<br/>
+Not interested (interest less than 25) - <%= @job0_25 %>
+
+<h5>Jobs by City</h5>
+<% @distinct_cities.each do |city| %>
+  <%= link_to "#{city}", jobs_path(location: "#{city}") %> - <%= Job.jobs_in_city(city).count %> <br/>
+<% end %>
+
+<h4>Top 3 Companies</h4>
