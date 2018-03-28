@@ -26,4 +26,22 @@ describe Category do
       end
     end
   end
+
+  describe "dependencies" do
+    it 'deletes jobs it owns when deleted' do
+      company = Company.create(name: 'Turing')
+      category = Category.create(title: 'Web Development')
+      job = Job.create(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+
+      category.destroy
+
+      expect(Job.count).to eq(0)
+    end
+  end
 end
