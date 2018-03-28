@@ -2,9 +2,9 @@
   <h1>All Jobs for <strong><%= @company.name %></strong></h1>
   <%= link_to "Create a New Job", new_company_job_path(@company) %>
 
-  <% @company.jobs.each do |job| %>
-  <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= link_to "Delete", company_job_path(@company, job), method: "delete" %></ul>
-  <% end %>
+<% @company.jobs.each do |job| %>
+  <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= link_to "Delete", company_job_path(@company, job), method: "delete", data: {confirm: "Are you sure? This will permanently delete this job."} %></ul>
+<% end %>
 
   <br>
 </div>
@@ -16,7 +16,7 @@
   <%= render partial: "form_contact" %>
   <% @company.contacts.each do |c| %>
   <p>
-    Name: <%= c.name %> | Position: <%= c.position %> | Email: <%= c.email %> <%= link_to "Edit", edit_company_contact_path(@company, c) %> <%= link_to "Delete", company_contact_path(@company, c), method: "delete" %><br/>
+    Name: <%= c.name %> | Position: <%= c.position %> | Email: <%= c.email %> <%= link_to "Edit", edit_company_contact_path(@company, c) %> <%= link_to "Delete", company_contact_path(@company, c), method: "delete", data: {confirm: "Are you sure? This will permanently delete this contact."} %><br/>
   </p>
   <% end %>
 </div>
