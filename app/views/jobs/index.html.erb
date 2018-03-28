@@ -1,5 +1,5 @@
-All Jobs
+All Jobs <%= link_to 'Sort by city', jobs_path %> <%= link_to 'Sort by interest level', jobs_path %>
 
 <% @jobs.each do |job| %>
-<ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= link_to "Delete", job_path(job), method: "delete" %></ul>
+<ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> in <%= job.city %> - <%= job.level_of_interest %> - <%= link_to "Delete", job_path(job), method: "delete" %></ul>
 <% end %>

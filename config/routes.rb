@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root 'companies#index'
+
+
+  root 'dashboard#index'
+  get '/dashboard' => 'dashboard#index'
+
   resources :categories
   resources :jobs
   resources :companies
