@@ -50,7 +50,7 @@ describe 'User' do
       fill_in 'Description', with: nil
       click_on 'Update Job'
 
-      expect(page).to have_content('Edit the job')
+      expect(page).to have_content('Edit Job')
     end
   end
 end
