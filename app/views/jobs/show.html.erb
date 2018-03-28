@@ -20,7 +20,7 @@ Category: <%= link_to @job.category.title, category_path(@job.category_id) %>
 
 Comments:
 <%= render partial: "form_comment" %>
-<% @job.comments.each do |c| %>
+<% @job.comments.reverse.each do |c| %>
   <p>
     <%= c.body %> <%= c.created_at %><br/>
   </p>
