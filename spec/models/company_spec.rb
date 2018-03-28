@@ -41,7 +41,7 @@ describe Company do
     it 'deletes jobs it owns when deleted' do
       company = Company.create(name: 'Turing')
       category = Category.create(title: 'Web Development')
-      job = Job.create(
+      Job.create(
         title: 'Developer',
         level_of_interest: 40,
         city: 'Denver',
@@ -52,6 +52,17 @@ describe Company do
       company.destroy
 
       expect(Job.count).to eq(0)
+    end
+  end
+
+  describe "dependencies" do
+    it 'deletes jobs it owns when deleted' do
+      company = Company.create(name: 'Turing')
+      company.contacts.create(name: 'Jimbo James', position: 'Jam Maker', email: 'barker@jimmer.com')
+      binding.pry
+      company.destroy
+
+      expect(Contact.count).to eq(0)
     end
   end
 end
