@@ -66,4 +66,15 @@ describe Job do
       expect(job).to respond_to(:comments)
     end
   end
+
+
+  describe "comment order" do
+    it "has comments sorted newest to oldest" do
+      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      comment1 = job.comments.new(body: 'A comment')
+      comment2 = job.comments.new(body: 'Another comment')
+
+      expect(job.comment_order.first.body).to eq('Another comment')
+    end
+  end
 end
