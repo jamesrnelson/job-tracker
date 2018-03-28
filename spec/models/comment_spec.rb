@@ -7,12 +7,6 @@ describe Comment do
         comment = Comment.new(body: 'This is the body')
         expect(comment).to be_invalid
       end
-
-
-      it 'is invalid without a city' do
-        comment = Comment.new(body: 'This is the body')
-        expect(comment).to be_invalid
-      end
     end
 
     context 'valid attributes' do
