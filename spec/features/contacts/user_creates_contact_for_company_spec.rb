@@ -3,7 +3,6 @@ require 'rails_helper'
 describe 'User creates a new contact' do
   scenario 'a user can create a new contact' do
     company = Company.create!(name: 'ESPN')
-    contacnt = company.contacts.create!(name: 'Bleep Blorp McGorp', position: 'Head Beeper', email: 'bleep@blorp.com')
 
     visit company_path(company)
 
