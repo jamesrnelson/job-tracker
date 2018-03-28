@@ -1,11 +1,12 @@
-<%= link_to "See all categories", categories_path %><br/>
+<div class="container">
 
-Title: <%= @category.title %>
-<br>
-<%= link_to "Edit Category", edit_category_path(@category) %>
-<br>
+  <h1><%= @category.title %></h1>
+  <br>
+  <%= link_to "Edit Category", edit_category_path(@category) %>
+  <br>
 
-Jobs:
-<% @category.jobs.each do |job| %>
+  Jobs:
+  <% @category.jobs.each do |job| %>
   <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %></ul>
-<% end %>
+  <% end %>
+</div>

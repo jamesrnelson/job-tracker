@@ -1,27 +1,34 @@
-Title: <%= @job.title %>
+<div class="container">
+
+  Title: <%= @job.title %>
+  <br>
+
+  Description: <%= @job.description %>
+  <br>
+
+  Level of Interest: <%= @job.level_of_interest %>
+  <br>
+
+  City: <%= @job.city %>
+  <br>
+
+  Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+  Category: <%= link_to @job.category.title, category_path(@job.category_id) %>
+  <br>
+  <%= link_to "Edit Job", edit_company_job_path(@job) %>
+  <br>
+
+  Comments:
+  <%= render partial: "form_comment" %>
+</div>
 <br>
-
-Description: <%= @job.description %>
 <br>
-
-Level of Interest: <%= @job.level_of_interest %>
-<br>
-
-City: <%= @job.city %>
-<br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
-
-<%= link_to "Edit Job", edit_company_job_path(@job) %>
-<br>
-
-Category: <%= link_to @job.category.title, category_path(@job.category_id) %>
-<br>
-
-Comments:
-<%= render partial: "form_comment" %>
-<% @job.comment_order.each do |c| %>
+<div class="container">
+  <% @job.comment_order.each do |c| %>
   <p>
-    <%= c.body %> <%= c.created_at %><br/>
+   <%= c.created_at %> - <%= c.body %> <br/>
   </p>
-<% end %>
+  <% end %>
+
+</div>

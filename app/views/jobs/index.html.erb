@@ -1,5 +1,11 @@
-All Jobs <%= link_to 'Sort All Jobs by City', jobs_path(:sort => :location) %> <%= link_to 'Sort All Jobs by Interest Level', jobs_path(sort: :interest) %>
+<div class="container">
 
-<% @jobs.each do |job| %>
-<ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> in <%= job.city %> - <%= job.level_of_interest %> - <%= link_to "Delete", job_path(job), method: "delete" %></ul>
-<% end %>
+  <h1>All Jobs</h1>
+  
+  <%= link_to 'Sort All Jobs by City', jobs_path(:sort => :location) %>
+  <%= link_to 'Sort All Jobs by (Interest) Level', jobs_path(sort: :interest) %>
+
+  <% @jobs.each do |job| %>
+  <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> in <%= job.city %> - (<%= job.level_of_interest %>) - <%= link_to "Delete", job_path(job), method: "delete" %></ul>
+  <% end %>
+</div>

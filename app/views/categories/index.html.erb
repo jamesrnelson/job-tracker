@@ -1,13 +1,15 @@
-<h3>All Categories</h3>
+<div class="container">
+  <h3>All Categories</h3>
 
-<ul>
-  <% @categories.each do |category| %>
-  <li class=category_<%= category.id %>>
-    <%= link_to category.title, category_path(category) %>:
-    <%= link_to "Edit", edit_category_path(category) %>
-    <%= link_to "Delete", category_path(category), method: "delete", data: {confirm: "Are you sure? This will delete all jobs associated with this category."} %>
-  </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @categories.each do |category| %>
+    <li class=category_<%= category.id %>>
+      <%= link_to category.title, category_path(category) %>:
+      <%= link_to "Edit", edit_category_path(category) %>
+      <%= link_to "Delete", category_path(category), method: "delete", data: {confirm: "Are you sure? This will delete all jobs associated with this category."} %>
+    </li>
+    <% end %>
+  </ul>
 
-<%= link_to "Create a New Category", new_category_path(@category) %>
+  <%= link_to "Create a New Category", new_category_path(@category) %>
+</div>
