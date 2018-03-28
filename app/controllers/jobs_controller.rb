@@ -1,14 +1,9 @@
 class JobsController < ApplicationController
   def index
-    if params[:sort] == "location"
-      @jobs = Job.all.order(:city)
-    elsif params[:sort] == "interest"
-      @jobs = Job.all.order(level_of_interest: :desc)
-    elsif params[:location]
-      @jobs = Job.jobs_in_city(params[:location])
-    else
-      @jobs = Job.all
-    end
+    return @jobs = Job.all.order(:city) if params[:sort] == "location"
+    return @jobs = Job.all.order(level_of_interest: :desc) if params[:sort] == "interest"
+    return @jobs = Job.jobs_in_city(params[:location]) if params[:location]
+    return @jobs = Job.all
   end
 
   def new
