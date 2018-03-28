@@ -47,10 +47,10 @@ describe 'User' do
       click_on 'Developer'
       click_on 'Edit Job'
       fill_in 'Title', with: 'Sportscaster'
-      fill_in 'Description', with: nil
+      fill_in 'City', with: nil
       click_on 'Update Job'
 
-      expect(page).to have_content('Edit the job')
+      expect(page).to have_content('Job was NOT updated. Please do not leave any fields blank.')
     end
   end
 end
