@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background: #A8DADC;
+  font-family: Arial;
+  margin: 1px;
+  padding: 0px 10px;
+}
+
+.topnav {
+  background: #E63946;
+  width: 100%;
+  height: 75px;
+  margin-bottom: 15px;
+}
+.banner {
+  font-size: 30px;
+  padding-top: 0px;
+  font-weight: bold;
+}
+.topnav a {
+  text-align: center;
+  padding-top: 25px;
+  padding-left: 10px;
+}
+
+.float_left {
+  float: left;
+}
+
+.float_right {
+  float: right;
+  padding-right: 5px;
+}
