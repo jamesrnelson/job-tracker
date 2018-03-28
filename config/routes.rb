@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :jobs do
-    resources :comments, only: :create
+    resources :comments, shallow: true
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
