@@ -47,22 +47,45 @@ describe Job do
 
   describe 'relationships' do
     it 'belongs to a company' do
-      job = Job.new(title: 'Software', level_of_interest: 70, description: 'Wahooo')
+      company = Company.new(name: 'Turing')
+      category = Category.new(title: 'Web Development')
+      job = Job.new(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
       expect(job).to respond_to(:category)
     end
   end
 
   describe 'relationships' do
     it 'belongs to a category' do
-      job = Job.new(title: 'Software', level_of_interest: 70, description: 'Wahooo')
+      company = Company.new(name: 'Turing')
+      category = Category.new(title: 'Web Development')
+      job = Job.new(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
       expect(job).to respond_to(:category)
     end
   end
 
   describe 'relationships' do
     it 'has many comments' do
-      job = Job.new(title: 'Software', level_of_interest: 70, description: 'Wahooo')
-
+      company = Company.new(name: 'Turing')
+      category = Category.new(title: 'Web Development')
+      job = Job.new(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
       expect(job).to respond_to(:comments)
     end
   end
@@ -70,11 +93,38 @@ describe Job do
 
   describe "comment order" do
     it "has comments sorted newest to oldest" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      company = Company.new(name: 'Turing')
+      category = Category.new(title: 'Web Development')
+      job = Job.new(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
       comment1 = job.comments.new(body: 'A comment')
       comment2 = job.comments.new(body: 'Another comment')
 
       expect(job.comment_order.first.body).to eq('Another comment')
+    end
+  end
+
+  describe "dependencies" do
+    it 'deletes comments it owns when deleted' do
+      company = Company.create(name: 'Turing')
+      category = Category.create(title: 'Web Development')
+      job = Job.create(
+        title: 'Developer',
+        level_of_interest: 40,
+        city: 'Denver',
+        company: company,
+        category: category
+      )
+
+      job.comments.create(body: 'Commentiment')
+      job.destroy
+
+      expect(Comment.count).to eq(0)
     end
   end
 end
