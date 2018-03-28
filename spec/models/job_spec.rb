@@ -93,17 +93,17 @@ describe Job do
 
   describe "comment order" do
     it "has comments sorted newest to oldest" do
-      company = Company.new(name: 'Turing')
-      category = Category.new(title: 'Web Development')
-      job = Job.new(
+      company = Company.create(name: 'Turing')
+      category = Category.create(title: 'Web Development')
+      job = Job.create(
         title: 'Developer',
         level_of_interest: 40,
         city: 'Denver',
         company: company,
         category: category
       )
-      job.comments.new(body: 'A comment')
-      job.comments.new(body: 'Another comment')
+      job.comments.create(body: 'A comment')
+      job.comments.create(body: 'Another comment')
 
       expect(job.comment_order.first.body).to eq('Another comment')
     end
