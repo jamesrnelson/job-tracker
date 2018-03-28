@@ -27,9 +27,9 @@ class Job < ApplicationRecord
   def self.distinct_cities
     distinct.pluck(:city)
   end
-  
+
   def comment_order
-    self.comments.reverse
+    comments.order('created_at DESC')
 
   end
 end
