@@ -2,27 +2,27 @@
   <h1>All You Need to Know About Jobs</h1>
   <div class="inner-container">
     <div class="box">
-      <h4>Jobs by Interest Level</h5>
-      Best Jobs (score: 75+ ) - <%= @job75_100 %>
-      <br/>
-      Good Jobs (score: 50 - 75) - <%= @job50_75 %>
-      <br/>
-      Okay Jobs (score: 25 - 50) - <%= @job25_50 %>
-      <br/>
-      Not interested (score: below 25) - <%= @job0_25 %>
+      <h3>Jobs by Interest Level</h3>
+      <p>Best Jobs (score: 75+ ) - <%= @job75_100 %></p>
+
+      <p>Good Jobs (score: 50 - 75) - <%= @job50_75 %></p>
+
+      <p>Okay Jobs (score: 25 - 50) - <%= @job25_50 %></p>
+
+      <p>Not interested (score: below 25) - <%= @job0_25 %></p>
     </div>
 
     <div class="box">
-      <h4>Jobs by City</h5>
+      <h3>Jobs by City</h3>
       <% @distinct_cities.each do |city| %>
       <p><%= link_to "#{city}", jobs_path(location: "#{city}") %> - <%= Job.jobs_in_city(city).count %></p>
       <% end %>
     </div>
 
     <div class="box">
-      <h4>Top 3 Companies (Interest Level)</h4>
+      <h3>Top 3 Companies (Interest Level)</h3>
       <% @top_three_companies.each do |company| %>
-      <%= company.name %> (<%= company.average_level_of_interest %>) <br/>
+        <p><%= company.name %> (<%= company.average_level_of_interest %>) </p>
       <% end %>
     </div>
   </div>
